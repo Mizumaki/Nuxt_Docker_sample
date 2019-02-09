@@ -1,0 +1,9 @@
+# dependencies
+node_modules
+.nuxt
+
+# dev dependencies
+.editorconfig
+.eslintrc.js
+.gitignore
+*.md

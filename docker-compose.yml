@@ -1,0 +1,19 @@
+version: "3"
+services:
+  nuxt:
+    build:
+      context: dockerfiles
+      dockerfile: nuxt.Dockerfile
+    tty: true
+    ports:
+      - '80:3000'
+    volumes:
+      # cachedオプションを最後に追記している
+      # https://docs.docker.com/docker-for-mac/osxfs-caching/
+      - /development/gketest/nuxt:/nuxt:cached
+      - hoge:/nuxt/node_modules
+      # 一部のファイルだけvolumeから除外するために
+      # 適当なvolumeを作ってそこに入れている
+      # http://www.denzow.me/entry/2018/03/18/104708
+volumes:
+  hoge:
