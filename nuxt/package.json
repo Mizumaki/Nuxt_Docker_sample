@@ -6,16 +6,17 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
+    "server": "node server/index.js",
     "docker": "yarn install --no-bin-links && node server/index.js",
     "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
+    "start": "nuxt start"
   },
   "dependencies": {
     "express": "^4.16.4",
     "nuxt": "^2.0.0"
+  },
+  "resolutions": {
+    "terser": "3.14.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

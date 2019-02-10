@@ -15,5 +15,19 @@ services:
       # 一部のファイルだけvolumeから除外するために
       # 適当なvolumeを作ってそこに入れている
       # http://www.denzow.me/entry/2018/03/18/104708
+  nuxt-gke:
+    build:
+      # context を適切に設定しないと COPY にエラーが出る
+      # https://qiita.com/mk-tool/items/1c7e4929055bb3b7aeda
+      # https://qiita.com/katoosky/items/bd24905bca20afdfe745
+      context: ./
+      dockerfile: ./dockerfiles/nuxt.gke.Dockerfile
+    working_dir: /nuxt
+    command: yarn server
+    environment:
+      NODE_ENV: production
+    tty: true
+    ports:
+      - '80:3000'
 volumes:
   hoge:
